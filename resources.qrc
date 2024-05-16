@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>icons/headphones.png</file>
+        <file>icons/shuffle.png</file>
+        <file>icons/replay.png</file>
+        <file>icons/music.png</file>
+        <file>icons/pause.png</file>
+        <file>icons/play.png</file>
+        <file>icons/open.png</file>
+        <file>icons/exchange.png</file>
+        <file>icons/next-button.png</file>
+        <file>icons/previous.png</file>
+    </qresource>
+    <qresource prefix="/videos"/>
+</RCC>
