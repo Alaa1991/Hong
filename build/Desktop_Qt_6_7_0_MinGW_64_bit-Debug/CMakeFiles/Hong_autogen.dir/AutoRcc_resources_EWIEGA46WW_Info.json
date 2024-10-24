@@ -1,0 +1,31 @@
+{
+	"BUILD_DIR" : "G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Hong_autogen",
+	"CMAKE_BINARY_DIR" : "G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "G:/My Drive/Computer works/Hong",
+	"CMAKE_SOURCE_DIR" : "G:/My Drive/Computer works/Hong",
+	"INCLUDE_DIR" : "G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Hong_autogen/include",
+	"INPUTS" : 
+	[
+		"G:/My Drive/Computer works/Hong/icons/music.png",
+		"G:/My Drive/Computer works/Hong/icons/exchange.png",
+		"G:/My Drive/Computer works/Hong/icons/pause.png",
+		"G:/My Drive/Computer works/Hong/icons/open.png",
+		"G:/My Drive/Computer works/Hong/icons/next-button.png",
+		"G:/My Drive/Computer works/Hong/icons/headphones.png",
+		"G:/My Drive/Computer works/Hong/icons/replay.png",
+		"G:/My Drive/Computer works/Hong/icons/previous.png",
+		"G:/My Drive/Computer works/Hong/icons/shuffle.png",
+		"G:/My Drive/Computer works/Hong/icons/play.png"
+	],
+	"LOCK_FILE" : "G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/CMakeFiles/Hong_autogen.dir/AutoRcc_resources_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "--no-zstd", "-name", "resources" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_resources.cpp",
+	"RCC_EXECUTABLE" : "C:/Qt2/6.7.0/mingw_64/./bin/rcc.exe",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/CMakeFiles/Hong_autogen.dir/AutoRcc_resources_EWIEGA46WW_Used.txt",
+	"SOURCE" : "G:/My Drive/Computer works/Hong/resources.qrc",
+	"VERBOSITY" : 0
+}

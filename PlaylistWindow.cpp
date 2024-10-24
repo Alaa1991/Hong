@@ -18,7 +18,7 @@ PlaylistWindow::PlaylistWindow(QWidget *parent):QDockWidget(parent)
 
 void PlaylistWindow::addSongs(const QStringList &songs)
 {
-     qDebug() << "Adding songs to playlist:" << songs;
+     // qDebug() << "Adding songs to playlist:" << songs;
     currIndex = -1;
     for(const QString &song : songs) {
         QListWidgetItem *item = new QListWidgetItem(QFileInfo(song).fileName());
@@ -43,13 +43,13 @@ QString PlaylistWindow::getNxtSong()
         if(currIndex + 1 < shuffleIndexes.size()) {
             currIndex++;
             int shuffledInex = shuffleIndexes[currIndex];
-            qDebug() << "Shuffled Next song index:" << shuffledInex;
+            // qDebug() << "Shuffled Next song index:" << shuffledInex;
             return songAt(shuffledInex);
         }
     } else {
         if(currIndex + 1 < playlistView->count()) {
             currIndex++;
-             qDebug() << "Next song index:" << currIndex;
+             // qDebug() << "Next song index:" << currIndex;
             return songAt(currIndex);
         }
     }
@@ -63,13 +63,13 @@ QString PlaylistWindow::getPrevSong()
         if(currIndex > 0) {
             currIndex--;
             int shuffledIndex = shuffleIndexes[currIndex];
-            qDebug() << "Shuffled Previous song index:" << shuffledIndex;
+            // qDebug() << "Shuffled Previous song index:" << shuffledIndex;
             return songAt(shuffledIndex);
         }
     } else {
         if(currIndex > 0) {
             currIndex--;
-            qDebug() << "Previous song index:" << currIndex;
+            // qDebug() << "Previous song index:" << currIndex;
             return songAt(currIndex);
         }
     }
@@ -100,19 +100,7 @@ void PlaylistWindow::setCurrSngPlyLst(int indx)
     }
 }
 
-// void PlaylistWindow::setCurrSngPlyLst(int indx)
-// {
-//     qDebug() << __FUNCTION__;
-//     if(indx >= 0 &&
-//         indx < playlistView->count()) {
-//         QListWidgetItem *item = playlistView->item(indx);
-//         playlistView->setCurrentItem(item);
-//         playlistView->scrollToItem(item);
-//         item->setSelected(true);
-//         currIndex = indx;
-//         qDebug() << "Current song index set to:" << currIndex;
-//     }
-// }
+
 
 
 int PlaylistWindow::getCurrIndx() const
@@ -141,7 +129,7 @@ QString PlaylistWindow::songAt(int indx) const
 
         QListWidgetItem *item = playlistView->item(indx);
         QString songPath = item ? item->data(Qt::UserRole).toString() : QString();
-        qDebug() << "Song at index" << indx << ":" << songPath;
+        // qDebug() << "Song at index" << indx << ":" << songPath;
 
         return songPath;
     }
@@ -165,7 +153,7 @@ bool PlaylistWindow::isEmpty() const
 void PlaylistWindow::toggleShuffle(bool enabled)
 {
     shuffleEnabled = enabled;
-    qDebug() << "Shuffle enabled:" << shuffleEnabled;
+    // qDebug() << "Shuffle enabled:" << shuffleEnabled;
     updateShuffledIndexes();
 }
 

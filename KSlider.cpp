@@ -22,15 +22,16 @@ KSlider::KSlider(QWidget *parent, QMediaPlayer *p,
 
 void KSlider::mousePressEvent(QMouseEvent *event)
 {
+    qDebug() << __FUNCTION__;
     if(event->button() == Qt::LeftButton) {
 
         if(player) {
             player->pause();
         }
 
-        // if(videoPlayer) {
-        //     videoPlayer->pause();
-        // }
+        if(videoPlayer) {
+            videoPlayer->pause();
+        }
 
         double newPos;
 
@@ -45,6 +46,15 @@ void KSlider::mousePressEvent(QMouseEvent *event)
         }
 
         setValue(static_cast<int>(newPos));
+
+        if(player) {
+            player->setPosition(static_cast<int>(newPos));
+        }
+
+        if(videoPlayer) {
+            videoPlayer->setPosition(static_cast<int>(newPos));
+        }
+
         timer->start();
 
         QSlider::mousePressEvent(event);
@@ -59,8 +69,8 @@ void KSlider::resumePlayback()
         player->play();
     }
 
-    // if(videoPlayer) {
-    //     videoPlayer->play();
-    // }
+    if(videoPlayer) {
+        videoPlayer->play();
+    }
 }
 

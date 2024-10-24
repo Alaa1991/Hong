@@ -6,6 +6,7 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
+set(CMAKE_VERBOSE_MAKEFILE ON)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -52,6 +53,10 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ConversionManager.cpp
         PlaylistWindow.h
         PlaylistWindow.cpp
+        VisualizerWidget.h
+        VisualizerWidget.cpp
+        KVideoWidget.h
+        KVideoWidget.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET Hong APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

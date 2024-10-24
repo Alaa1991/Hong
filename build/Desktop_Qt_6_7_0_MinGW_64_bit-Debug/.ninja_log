@@ -1,0 +1,91 @@
+# ninja log v5
+40	4402	7511130027630000	build.ninja	ac35aa91ca9686ce
+67	1207	7510743062220000	Hong_autogen/timestamp	1d66ba20be312b11
+3102	3916	7505126059010000	Hong_autogen/EWIEGA46WW/qrc_resources.cpp	febb175193979287
+67	1207	7510743062220000	Hong_autogen/mocs_compilation.cpp	1d66ba20be312b11
+67	1207	7510743062220000	G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Hong_autogen/timestamp	1d66ba20be312b11
+4013	6046	7505126080750000	CMakeFiles/Hong.dir/Hong_autogen/EWIEGA46WW/qrc_resources.cpp.obj	7d1490e0c9f7ca6f
+67	1207	7510743062220000	G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Hong_autogen/mocs_compilation.cpp	1d66ba20be312b11
+3102	3916	7505126059010000	G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Hong_autogen/EWIEGA46WW/qrc_resources.cpp	febb175193979287
+3974	7601	7505126095310000	CMakeFiles/Hong.dir/ConversionManager.cpp.obj	c9515df20e8bddb2
+4000	8810	7505126108240000	CMakeFiles/Hong.dir/VisualizerWidget.cpp.obj	926132d15e499763
+940	4972	7510742107700000	CMakeFiles/Hong.dir/KSlider.cpp.obj	d79c627b1586a784
+3961	8925	7505126109420000	CMakeFiles/Hong.dir/PlaylistWindow.cpp.obj	a80c2c0f2604c099
+3987	9187	7505126112050000	CMakeFiles/Hong.dir/ConvertDialog.cpp.obj	49a3c190c3057590
+2901	8725	7506339534780000	CMakeFiles/Hong.dir/main.cpp.obj	802f20ef5a0f2064
+1297	8860	7510743137030000	CMakeFiles/Hong.dir/mainwindow.cpp.obj	bd91434c2312ab2
+2893	9268	7506339540250000	CMakeFiles/Hong.dir/Hong_autogen/mocs_compilation.cpp.obj	8579cac50c62517f
+8902	23124	7510743278960000	Hong.exe	560adb1c3757a9e7
+21	6033	7511130027630000	build.ninja	ac35aa91ca9686ce
+129	3517	7511130080440000	Hong_autogen/timestamp	1d66ba20be312b11
+129	3517	7511130080440000	Hong_autogen/mocs_compilation.cpp	1d66ba20be312b11
+129	3517	7511130080440000	G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Hong_autogen/timestamp	1d66ba20be312b11
+129	3517	7511130080440000	G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Hong_autogen/mocs_compilation.cpp	1d66ba20be312b11
+3560	7495	7511130122650000	CMakeFiles/Hong.dir/KVideoWidget.cpp.obj	c57a9614a4974f78
+3539	9624	7511130143920000	CMakeFiles/Hong.dir/main.cpp.obj	802f20ef5a0f2064
+3550	11522	7511130162630000	CMakeFiles/Hong.dir/mainwindow.cpp.obj	bd91434c2312ab2
+3529	11713	7511130164670000	CMakeFiles/Hong.dir/Hong_autogen/mocs_compilation.cpp.obj	8579cac50c62517f
+11716	27857	7511130325330000	Hong.exe	3027b57a2e1bd30e
+100	3456	7512928254280000	Hong_autogen/timestamp	1d66ba20be312b11
+100	3456	7512928254280000	Hong_autogen/mocs_compilation.cpp	1d66ba20be312b11
+100	3456	7512928254280000	G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Hong_autogen/timestamp	1d66ba20be312b11
+100	3456	7512928254280000	G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Hong_autogen/mocs_compilation.cpp	1d66ba20be312b11
+3499	10390	7512928326830000	CMakeFiles/Hong.dir/main.cpp.obj	802f20ef5a0f2064
+3510	11674	7512928339160000	CMakeFiles/Hong.dir/mainwindow.cpp.obj	bd91434c2312ab2
+3478	12025	7512928342790000	CMakeFiles/Hong.dir/Hong_autogen/mocs_compilation.cpp.obj	8579cac50c62517f
+12033	29664	7512928518710000	Hong.exe	3027b57a2e1bd30e
+121	1477	7512929307170000	Hong_autogen/timestamp	1d66ba20be312b11
+121	1477	7512929307170000	Hong_autogen/mocs_compilation.cpp	1d66ba20be312b11
+121	1477	7512929307170000	G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Hong_autogen/timestamp	1d66ba20be312b11
+121	1477	7512929307170000	G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Hong_autogen/mocs_compilation.cpp	1d66ba20be312b11
+1594	8842	7512929379100000	CMakeFiles/Hong.dir/mainwindow.cpp.obj	bd91434c2312ab2
+8863	24092	7512929531690000	Hong.exe	3027b57a2e1bd30e
+117	4044	7512936854420000	Hong_autogen/timestamp	1d66ba20be312b11
+117	4044	7512936854420000	Hong_autogen/mocs_compilation.cpp	1d66ba20be312b11
+117	4044	7512936854420000	G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Hong_autogen/timestamp	1d66ba20be312b11
+117	4044	7512936854420000	G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Hong_autogen/mocs_compilation.cpp	1d66ba20be312b11
+4091	8538	7512936900830000	CMakeFiles/Hong.dir/KVideoWidget.cpp.obj	c57a9614a4974f78
+4070	9726	7512936912650000	CMakeFiles/Hong.dir/main.cpp.obj	802f20ef5a0f2064
+4081	11131	7512936926770000	CMakeFiles/Hong.dir/mainwindow.cpp.obj	bd91434c2312ab2
+4058	11440	7512936929520000	CMakeFiles/Hong.dir/Hong_autogen/mocs_compilation.cpp.obj	8579cac50c62517f
+11444	26471	7512937079280000	Hong.exe	3027b57a2e1bd30e
+93	2436	7514666868270000	Hong_autogen/timestamp	1d66ba20be312b11
+93	2436	7514666868270000	Hong_autogen/mocs_compilation.cpp	1d66ba20be312b11
+93	2436	7514666868270000	G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Hong_autogen/timestamp	1d66ba20be312b11
+93	2436	7514666868270000	G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Hong_autogen/mocs_compilation.cpp	1d66ba20be312b11
+2473	6614	7514666911820000	CMakeFiles/Hong.dir/KVideoWidget.cpp.obj	c57a9614a4974f78
+2453	6655	7514666911870000	CMakeFiles/Hong.dir/main.cpp.obj	802f20ef5a0f2064
+2468	7485	7514666920320000	CMakeFiles/Hong.dir/mainwindow.cpp.obj	bd91434c2312ab2
+2462	7889	7514666924160000	CMakeFiles/Hong.dir/Hong_autogen/mocs_compilation.cpp.obj	8579cac50c62517f
+7896	21706	7514667062430000	Hong.exe	3027b57a2e1bd30e
+108	882	7514672082910000	Hong_autogen/timestamp	1d66ba20be312b11
+108	882	7514672082910000	Hong_autogen/mocs_compilation.cpp	1d66ba20be312b11
+108	882	7514672082910000	G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Hong_autogen/timestamp	1d66ba20be312b11
+108	882	7514672082910000	G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Hong_autogen/mocs_compilation.cpp	1d66ba20be312b11
+954	6437	7514672137540000	CMakeFiles/Hong.dir/mainwindow.cpp.obj	bd91434c2312ab2
+6454	20042	7514672273200000	Hong.exe	3027b57a2e1bd30e
+73	887	7514672723090000	Hong_autogen/timestamp	1d66ba20be312b11
+73	887	7514672723090000	Hong_autogen/mocs_compilation.cpp	1d66ba20be312b11
+73	887	7514672723090000	G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Hong_autogen/timestamp	1d66ba20be312b11
+73	887	7514672723090000	G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Hong_autogen/mocs_compilation.cpp	1d66ba20be312b11
+986	6135	7514672774650000	CMakeFiles/Hong.dir/mainwindow.cpp.obj	bd91434c2312ab2
+6147	16099	7514672873750000	Hong.exe	3027b57a2e1bd30e
+114	819	7514673036460000	Hong_autogen/timestamp	1d66ba20be312b11
+114	819	7514673036460000	Hong_autogen/mocs_compilation.cpp	1d66ba20be312b11
+114	819	7514673036460000	G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Hong_autogen/timestamp	1d66ba20be312b11
+114	819	7514673036460000	G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Hong_autogen/mocs_compilation.cpp	1d66ba20be312b11
+869	5645	7514673083570000	CMakeFiles/Hong.dir/mainwindow.cpp.obj	bd91434c2312ab2
+5661	19856	7514673225630000	Hong.exe	3027b57a2e1bd30e
+72	2398	7514675685470000	Hong_autogen/timestamp	1d66ba20be312b11
+72	2398	7514675685470000	Hong_autogen/mocs_compilation.cpp	1d66ba20be312b11
+72	2398	7514675685470000	G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Hong_autogen/timestamp	1d66ba20be312b11
+72	2398	7514675685470000	G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Hong_autogen/mocs_compilation.cpp	1d66ba20be312b11
+2440	5121	7514675715250000	CMakeFiles/Hong.dir/KVideoWidget.cpp.obj	c57a9614a4974f78
+2422	6247	7514675726440000	CMakeFiles/Hong.dir/main.cpp.obj	802f20ef5a0f2064
+2416	7839	7514675742190000	CMakeFiles/Hong.dir/Hong_autogen/mocs_compilation.cpp.obj	8579cac50c62517f
+76	851	7514676021270000	Hong_autogen/timestamp	1d66ba20be312b11
+76	851	7514676021270000	Hong_autogen/mocs_compilation.cpp	1d66ba20be312b11
+76	851	7514676021270000	G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Hong_autogen/timestamp	1d66ba20be312b11
+76	851	7514676021270000	G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Hong_autogen/mocs_compilation.cpp	1d66ba20be312b11
+908	5548	7514676067640000	CMakeFiles/Hong.dir/mainwindow.cpp.obj	bd91434c2312ab2
+5557	19357	7514676204900000	Hong.exe	3027b57a2e1bd30e

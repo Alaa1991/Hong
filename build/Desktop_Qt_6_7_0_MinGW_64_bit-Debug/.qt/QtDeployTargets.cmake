@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_Hong_FILE G:/My Drive/Computer works/Hong/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Hong.exe)
+set(__QT_DEPLOY_TARGET_Hong_RUNTIME_DLLS C:/Qt2/6.7.0/mingw_64/bin/Qt6MultimediaWidgets.dll;C:/Qt2/6.7.0/mingw_64/bin/Qt6Multimedia.dll;C:/Qt2/6.7.0/mingw_64/bin/Qt6Network.dll;C:/Qt2/6.7.0/mingw_64/bin/Qt6Widgets.dll;C:/Qt2/6.7.0/mingw_64/bin/Qt6Gui.dll;C:/Qt2/6.7.0/mingw_64/bin/Qt6Core.dll)

@@ -28,6 +28,11 @@
 #include <QKeySequence>
 #include <QCloseEvent>
 #include <QMetaObject>
+#include <QAudioDecoder>
+#include <QAudioBuffer>
+
+#include "VisualizerWidget.h"
+#include "KVideoWidget.h"
 
 extern "C" {
 #include <libavcodec/avcodec.h>
@@ -77,6 +82,12 @@ private slots:
     void savePlayList();
     void savePlaybackPos();
 
+    // void handleBufferReady();
+    // void handleError(QAudioDecoder::Error);
+    // void handleDecodingFinished();
+    void convertAudioToPCM(const QString&,const QString&);
+
+
 protected:
     void keyPressEvent(QKeyEvent *event) override;
     void closeEvent(QCloseEvent*) override;
@@ -92,6 +103,7 @@ private:
     void playVisualizer();
     void saveCheckBxState(bool checked);
     void resume();
+
 
     Ui::MainWindow *ui;
     QMediaPlayer *player;
@@ -124,7 +136,9 @@ private:
     bool userSliderChange = false;
     QTimer *debounceTimer;
     QString currentFilePath;
-    QVideoWidget *videoWidget;
+
+    KVideoWidget *videoWidget;
+
     QMediaPlayer *videoPlayer;
     QMediaPlayer *visualizerPlayer;
 
@@ -136,4 +150,7 @@ private:
     int lastPos;
 
     QMetaObject::Connection loadMediaConnection;
+
+    VisualizerWidget *visualizerWidget;
+    QAudioDecoder *audioDecoder;
 };

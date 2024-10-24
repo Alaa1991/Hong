@@ -13,15 +13,22 @@ MainWindow::MainWindow(QWidget *parent)
     audioOutput = new QAudioOutput(this);
     player->setAudioOutput(audioOutput);
 
-    videoWidget = new QVideoWidget(this);
+    audioDecoder = new QAudioDecoder(this);
+    visualizerWidget = new VisualizerWidget(this);
+    visualizerWidget->hide();
+
+
+    videoWidget = new KVideoWidget(this);
     videoWidget->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
+    // videoWidget->hide();
+    videoPlayer->setVideoOutput(videoWidget);
 
     settings = new QSettings("K&K", "Hong", this);
 
     visualizerPlayer = new QMediaPlayer(this);
     QString visualizerPath =
         "file:///C:/Users/PC/My Drive/Computer works/Hong (1)/videos/17_wire_audio.mov";
-    visualizerPlayer->setSource(QUrl(visualizerPath));
+    // visualizerPlayer->setSource(QUrl(visualizerPath));
 
     playListWin = new PlaylistWindow(this);
     addDockWidget(Qt::RightDockWidgetArea, playListWin);
@@ -48,6 +55,8 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete audioDecoder;
+    delete visualizerWidget;
 }
 
 void MainWindow::setupConnections()
@@ -111,6 +120,24 @@ void MainWindow::setupConnections()
         saveCheckBxState(shuffledChecked);
         playListWin->toggleShuffle(shuffledChecked);
     });
+
+    connect(videoWidget, &KVideoWidget::playRequested,this,&MainWindow::togglePlayPause);
+    connect(videoWidget,&KVideoWidget::pauseRequested,this,&MainWindow::togglePlayPause);
+    connect(videoWidget,&KVideoWidget::fullScreenRequested,this,[this](){
+        videoWidget->setFullScreen(true);
+    });
+    connect(videoWidget,&KVideoWidget::exitFullscreenRequested,[this]() {
+        videoWidget->setFullScreen(false);
+    });
+
+    connect(videoWidget,&KVideoWidget::playPauseToggleReq,this,&MainWindow::togglePlayPause);
+
+
+    // connect(audioDecoder,&QAudioDecoder::bufferReady,this,&MainWindow::handleBufferReady);
+
+    // connect(audioDecoder,QOverload<QAudioDecoder::Error>::of(&QAudioDecoder::error),
+    //         this, &MainWindow::handleError);
+    // connect(audioDecoder,&QAudioDecoder::finished,this,&MainWindow::handleDecodingFinished);
 }
 
 
@@ -130,6 +157,26 @@ void MainWindow::importSongs()
         playListWin->clearPlaylist();
         playListWin->addSongs(songFiles);
 
+        // // Start decoding the first song for visualization
+        // QString firstSong = songFiles.first();
+        // audioDecoder->setSource(QUrl::fromLocalFile(firstSong));
+        // audioDecoder->start();
+
+        QString firstFile = songFiles.first();
+
+        if(isVideoFile(firstFile)) {
+            videoPlayer->setSource(QUrl::fromLocalFile(firstFile));
+            videoPlayer->setVideoOutput(videoWidget);
+            videoWidget->show();
+            videoPlayer->play();
+
+        }
+
+        QString pcmOutput = QFileInfo(songFiles.first()).absolutePath() + ".pcm";
+
+        convertAudioToPCM(songFiles.first(),pcmOutput);
+
+
         playNextSong();     
         togglePlayPause();
         // player->play();
@@ -142,10 +189,10 @@ void MainWindow::playVisualizer()
 {
     qDebug() << __FUNCTION__;
 
-    if(!videoWidget->isVisible()) {
-        videoWidget->setVisible(true);
-        qDebug() << "Made video widget visible";
-    }
+    // if(!videoWidget->isVisible()) {
+    //     videoWidget->setVisible(true);
+    //     qDebug() << "Made video widget visible";
+    // }
 
     visualizerPlayer->setVideoOutput(videoWidget);
 
@@ -250,7 +297,10 @@ void MainWindow::setupLayout()
 {
     QVBoxLayout *mainLayout = new QVBoxLayout();
 
-    mainLayout->addWidget(videoWidget);
+    // visualizerWidget->setMinimumHeight(100);
+    // mainLayout->addWidget(visualizerWidget, 1);
+    mainLayout->addWidget(videoWidget, 1);
+
     mainLayout->addWidget(lbTrackInfo);
 
     QHBoxLayout *volumeSliderLayout = new QHBoxLayout();
@@ -287,8 +337,11 @@ void MainWindow::setupLayout()
     buttonLayout->addWidget(btnNxt);
     buttonLayout->addWidget(btnImport);
     buttonLayout->addStretch(8);
+
     mainLayout->addLayout(buttonLayout);
-    // mainLayout->addStretch(1);
+
+    // mainLayout->addWidget(visualizerWidget, 1);
+
     centralWidget()->setLayout(mainLayout);
 }
 
@@ -325,7 +378,7 @@ void MainWindow::updateTrackInfo()
 
 void MainWindow::onVolumeSliderChange(int val)
 {
-    qDebug() << __FUNCTION__;
+    // qDebug() << __FUNCTION__;
     if(settings) {
         settings->setValue("volumeLevel", val);
     }
@@ -353,8 +406,8 @@ void MainWindow::loadSettings()
 
      lastSongPath = settings->value("lastSongPath", QString()).toString();
      lastPos = settings->value("lastPos", 0).toInt();
-     qDebug() << "loading last pos: " << lastPos << "\n";
-     qDebug() << "loading lastSongPath: " << lastSongPath << "\n";
+     // qDebug() << "loading last pos: " << lastPos << "\n";
+     // qDebug() << "loading lastSongPath: " << lastSongPath << "\n";
 
     if(!playlist.isEmpty()) {
 
@@ -369,6 +422,8 @@ void MainWindow::loadSettings()
         }
     }
 }
+
+
 
 void MainWindow::togglePlayPause()
 {
@@ -430,6 +485,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
         case Qt::Key_R:
             replay();
             break;
+
 
         default:
             QMainWindow::keyPressEvent(event);
@@ -561,27 +617,59 @@ void MainWindow::endVisuFromPlayer(QMediaPlayer::MediaStatus status)
 
 void MainWindow::onSongSelected(const QString &songPath)
 {
-    qDebug() << __FUNCTION__;
     if(!songPath.isEmpty()) {
-
-        player->setSource(QUrl::fromLocalFile(songPath));
-        int vol = settings->value("volumeLevel").toInt();
-        audioOutput->setVolume(vol/100.0f);
-        player->play();
         currentFilePath = songPath;
-        updateTrackInfo();
-        // playListWin->setCurrSngPlyLst(playListWin->getCurrIndx());
-        togglePlayPause();
-        playVisualizer();
+
+        if(isVideoFile(songPath)) {
+            videoPlayer->setSource(QUrl::fromLocalFile(songPath));
+            videoPlayer->setVideoOutput(videoWidget);
+            videoWidget->show();
+            videoPlayer->play();
+            // togglePlayPause();
+        } else {
+            player->setSource(QUrl::fromLocalFile(songPath));
+            audioOutput->setVolume(savedVolume / 100.0f);
+            player->play();
+        }
+
         updateTrackInfo();
 
         int indx = playListWin->findSongIndx(songPath);
+
         if(indx != -1) {
             playListWin->setCurrSngPlyLst(indx);
-
         }
     }
 }
+// void MainWindow::onSongSelected(const QString &songPath)
+// {
+//     qDebug() << __FUNCTION__;
+
+
+
+//     if(!songPath.isEmpty()) {
+
+//         player->setSource(QUrl::fromLocalFile(songPath));
+//         int vol = settings->value("volumeLevel").toInt();
+//         audioOutput->setVolume(vol/100.0f);
+//         player->play();
+//         currentFilePath = songPath;
+//         updateTrackInfo();
+//         // playListWin->setCurrSngPlyLst(playListWin->getCurrIndx());
+//         togglePlayPause();
+//         playVisualizer();
+//         updateTrackInfo();
+
+//         audioDecoder->setSource(QUrl::fromLocalFile(songPath));
+//         audioDecoder->start();
+
+//         int indx = playListWin->findSongIndx(songPath);
+//         if(indx != -1) {
+//             playListWin->setCurrSngPlyLst(indx);
+
+//         }
+//     }
+// }
 
 void MainWindow::playNextSong()
 {
@@ -600,11 +688,18 @@ void MainWindow::playNextSong()
 
         if(isVideoFile(nextSongPath)) {
             videoPlayer->setSource(QUrl::fromLocalFile(nextSongPath));
+            videoPlayer->setVideoOutput(videoWidget);
             videoPlayer->play();
+            togglePlayPause();
         } else {
             player->setSource(QUrl::fromLocalFile(nextSongPath));
             player->play();
-            playVisualizer();
+            // playVisualizer();
+            togglePlayPause();
+
+            // Start decoding the new song for visualization
+            audioDecoder->setSource(QUrl::fromLocalFile(nextSongPath));
+            audioDecoder->start();
         }
 
     } else if(ckShuffle->isChecked() && playListWin->playListCount() > 0) {
@@ -721,6 +816,33 @@ void MainWindow::resume()
                 }
             });
 }
+
+
+void MainWindow::convertAudioToPCM(const QString &sourcePath, const QString &destPath)
+{
+    QProcess *ffmpegProcess = new QProcess(this);
+
+    connect(ffmpegProcess,QOverload<int,QProcess::ExitStatus>::of(&QProcess::finished),
+            [this,destPath](int exitCode,QProcess::ExitStatus exitStatus) {
+        visualizerWidget->loadPCMData(destPath);
+    });
+
+    ffmpegProcess->start("ffmpeg",QStringList() << "-i" << sourcePath
+      << "-f" << "s16le" << "-acodec" << "pcm_s16le" << destPath);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
